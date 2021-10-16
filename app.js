@@ -4,7 +4,7 @@ const path = require('path');
 let app = express()
 let server = http.createServer(app)
 
-let port = process.argv[2] || 8080;
+let port = process.env.PORT || 8080;
 server.listen(port)
 console.log('Servidor http rodando na porta', port)
 
