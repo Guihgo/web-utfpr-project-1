@@ -211,3 +211,12 @@
               width: 25%;
               text-align: right;
           }
+          
+          .border-img {
+              border-radius: 50%;
+              float: left;
+              height: 100px;
+              overflow: hidden;
+              position: relative;
+              max-width: 100px;
+          }
