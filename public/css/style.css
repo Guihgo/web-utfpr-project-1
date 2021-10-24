@@ -209,6 +209,18 @@
             border-bottom: 1px solid #cfcfcf;
           }
 
+          .features .cards {
+            display: flex;
+          }
+
+          .features .card {
+            background-color: #fff;
+            border-radius: 3px;
+            box-shadow: none;
+            padding: 25px;
+            margin-top: 25px;
+          }
+
            footer {
               background-color: #fff;
               border-top: 1px solid #cfcfcf;
