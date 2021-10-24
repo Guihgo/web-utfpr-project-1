@@ -140,6 +140,19 @@
           margin-bottom: 25px;
       }
       
+      #container main .main-image {
+          max-width: 960px;
+          background-image: url(/imgs/homepage.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          margin: auto;
+          height: 672px;
+          height: 600px;
+          margin: auto auto -50px;
+          overflow-y: hidden;
+          box-shadow: 0 0 50px rgba(0, 0, 0, .67);
+      }
+      
       #menu {
           border: 3px solid rgb(183, 223, 4);
           background-color: rgb(197, 54, 54);
