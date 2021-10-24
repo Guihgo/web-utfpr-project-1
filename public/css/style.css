@@ -221,6 +221,29 @@
             margin-top: 25px;
           }
 
+          .institutions {
+            
+            border-top: 1px solid #cfcfcf;
+            border-bottom: 1px solid #cfcfcf;
+          }
+          .institutions h2{
+            text-align: center;
+            font-family: Merriweather,serif;
+            font-weight: 500;
+            line-height: 1.35;
+            color: #505050;
+          }
+          .institutions .cards {
+            display: flex;
+          }
+          .institutions .card {
+            background-color: #fff;
+            align-items: center;
+            border-radius: 3px;
+            padding: 5px;
+            margin-top: 5px;
+          }
+
            footer {
               background-color: #fff;
               border-top: 1px solid #cfcfcf;
