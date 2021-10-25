@@ -163,7 +163,7 @@ body {
 }
 
 .depoiment {
-    padding: 25px 50px;
+    padding: 25px 100px;
 }
 
 .depoiment h3 {
@@ -209,6 +209,7 @@ body {
     background: url(/imgs/grid.png) repeat #f4f5f8;
     border-top: 1px solid #cfcfcf;
     border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 30px;
 }
 
 .features .cards {
@@ -254,11 +255,13 @@ body {
 }
 
 .institutions {
+    background-color: #FFF;
     border-top: 1px solid #cfcfcf;
     border-bottom: 1px solid #cfcfcf;
 }
 
 .institutions h2 {
+    font-size: 25px;
     margin-top: 30px;
     text-align: center;
     font-family: Merriweather, serif;
@@ -286,6 +289,66 @@ body {
 .institutions .link {
     margin: 30px;
     text-align: center;
+}
+
+.details {
+    width: 90%;
+    padding: 30px;
+}
+
+.details .card {
+    background-color: #FFF;
+    border-radius: 3px;
+    box-shadow: none;
+    padding: 25px 10px;
+    margin-top: 30px;
+}
+
+.details .card .header {
+    border-bottom: 1px solid #50505048;
+    font-family: Merriweather, serif;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #505050;
+    padding-bottom: 15px;
+}
+
+.details .card .body {
+    margin-top: 15px;
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    line-height: 1.5625;
+    color: #5d6879;
+    display: flex;
+}
+
+.details .card .body p {
+    flex-basis: 59%;
+}
+
+.details .card .body div {
+    flex-basis: 25%;
+}
+
+.details .card .body .code {
+    background-color: #e4e8ee;
+    border-color: transparent;
+    color: #5d6879;
+    padding: 15px;
+}
+
+.details .card .body .code .btn {
+    text-align: center;
+    padding: 5px;
+    background-color: #242b35;
+    border-radius: 8px;
+    color: #FFF;
+    margin-top: 15px;
+}
+
+.details .card .body .code .btn a {
+    text-decoration: none;
+    color: #FFF;
 }
 
 footer {
@@ -353,5 +416,14 @@ footer .col-B {
 @media (max-width: 600px) {
     .features .card {
         flex-basis: 80%;
+    }
+    .depoiment {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .institutions .card {
+        flex-basis: 40%;
     }
 }
