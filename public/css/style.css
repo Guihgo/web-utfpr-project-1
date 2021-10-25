@@ -254,27 +254,39 @@ body {
 }
 
 .institutions {
-            
     border-top: 1px solid #cfcfcf;
     border-bottom: 1px solid #cfcfcf;
-  }
-  .institutions h2{
+}
+
+.institutions h2 {
+    margin-top: 30px;
     text-align: center;
-    font-family: Merriweather,serif;
+    font-family: Merriweather, serif;
     font-weight: 500;
     line-height: 1.35;
     color: #505050;
-  }
-  .institutions .cards {
+}
+
+.institutions .cards {
     display: flex;
-  }
-  .institutions .card {
-    background-color: #fff;
+    padding: 0 30px;
+    flex-wrap: wrap;
+    max-width: 650px;
+    align-content: center;
+    align-items: center;
+}
+
+.institutions .card {
     align-items: center;
     border-radius: 3px;
     padding: 5px;
     margin-top: 5px;
-  }
+}
+
+.institutions .link {
+    margin: 30px;
+    text-align: center;
+}
 
 footer {
     background-color: #fff;
