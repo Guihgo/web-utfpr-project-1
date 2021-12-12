@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1,maximum-scale=3,minimum-scale=1,user-scalable=no">
     <title>Overleaf</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
     <!-- lk-->
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
     <div id="loginModal" class="modal">
         <div class="box">
             <h2>Log in to Overleaf</h2>
-            <span>&times;</span>
+            <span class="close">&times;</span>
             <div class="input">
                 <input type="text" placeholder="Type your email" />
             </div>
@@ -32,6 +33,50 @@
             </div>
         </div>
     </div>
+
+    <div id="signinModal" class="modal">
+        <div class="box">
+            <h2>Register in Overleaf</h2>
+            <span class="close">&times;</span>
+            <div class="input">
+                <input type="text" placeholder="Type your email" />
+            </div>
+            <div class="input">
+                <input type="password" placeholder="Type your password" />
+            </div>
+            <div class="input">
+                <input type="password" placeholder="Repeat your password" />
+            </div>
+            <div class="input">
+                <button id="btnSignin">Sign In</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="box">
+            <h2>Add a template</h2>
+            <span class="close">&times;</span>
+            <div class="input">
+                <input type="text" placeholder="Template name" />
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Template description" />
+            </div>
+            <div class="input">
+                <select id="icon">
+                    <option value="fa-address-book">Book</option>
+                    <option value="fa-envelope-open">Envelope</option>
+                    <option value="fa-id-card">Card</option>
+                    <option value="fa-bars">Bars</option>
+                </select>
+            </div>
+            <div class="input">
+                <button id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+
     <section id="header">
         <div class="logo">
             <img src="./imgs/overleaf-white.svg" width="250px" height="auto">
@@ -42,7 +87,7 @@
                 <li><a href="#template">Templates</a></li>
                 <li><a href="#plans">Planos & Preços</a></li>
                 <li><a href="#help">Ajuda</a></li>
-                <li class="main-button"><a href="#register">Registrar</a></li>
+                <li  id="btnSigninModal" class="main-button"><a href="#register">Registrar</a></li>
                 <li id="btnLoginModal" class="main-button"><a href="#login">Entrar</a></li>
             </ul>
         </div>
@@ -51,6 +96,51 @@
         <!-- <button type="button" data-toggle="collapse"
             data-target="[data-ol-navbar-main-collapse]"><i class="fa fa-bars"
                 aria-hidden="true"></i></button> -->
+    </section>
+
+    <section id="app">
+
+        <div class="searchTemplate">
+            <div>
+                <input type="search" placeholder="Search a template" />
+                <button>Search</button>
+                <button id="btnAddModal">ADD</button>
+            </div>
+        </div>
+            
+        <div class="features">
+            <div class="cards">
+                <div class="card">
+                    <div>
+                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
+                    </div>
+                    <div class="desc">
+                        <h3>Title Here</h3>
+                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
+                    </div>
+                    <div class="desc">
+                        <h3>Title Here</h3>
+                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
+                    </div>
+                    <div class="desc">
+                        <h3>Title Here</h3>
+                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    
     </section>
 
     <section id="container">

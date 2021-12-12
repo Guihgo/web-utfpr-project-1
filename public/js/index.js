@@ -31,28 +31,54 @@ window.onload = (e)=>{
     const btnLoginModal = document.getElementById('btnLoginModal')
     const btnLogin = document.getElementById('btnLogin')
 
-    verifyLogin()
+    const signinModal = document.getElementById('signinModal')
+    const btnSigninModal = document.getElementById('btnSigninModal')
+    const btnSignin = document.getElementById('btnSignin')
 
-    loginModal.onclick = (e)=>{
-      loginModal.style.display = 'none'
-    } 
+    const addModal = document.getElementById('addModal')
+    const btnAddModal = document.getElementById('btnAddModal')
+    const btnAdd = document.getElementById('btnAdd')
 
-    loginModal.querySelector('.box span').onclick = (e)=>{
-      loginModal.style.display = 'none'
-    } 
+    document.querySelectorAll('.modal .box').forEach(b=>{
+      b.onclick = (e)=>{
+        e.stopPropagation()
+      }
+    })
 
-    loginModal.querySelector('.box').onclick = (e)=>{
-      e.stopPropagation()
+    document.querySelectorAll('.modal').forEach(m=>{
+      m.onclick
+      = (e)=>{
+        e.target.style.display = 'none'
+      } 
+    })
+    
+    document.querySelectorAll('.modal .box .close').forEach(i=>{
+      i.onclick = (e)=>{
+        document.querySelectorAll('.modal').forEach(modal=>{
+          modal.style.display = 'none'
+        })
+      }
+    })
+    
+    const showModal = (modal, event) => {
+      event.preventDefault()
+
+      if(modal.style.display==='none' || modal.style.display==='') {
+        modal.style.display = 'block'
+      } else {
+        modal.style.display = 'none'
+      }
     }
 
     btnLoginModal.onclick = (e) => {
-      e.preventDefault()
+      showModal(loginModal, e)
+    }
+    btnSigninModal.onclick = (e) => {
+      showModal(signinModal, e)
+    }
 
-      if(loginModal.style.display==='none' || loginModal.style.display==='') {
-        loginModal.style.display = 'block'
-      } else {
-        loginModal.style.display = 'none'
-      }
+    btnAddModal.onclick = (e) => {
+      showModal(addModal, e)
     }
     
     btnLogin.onclick = (e)=>{
@@ -74,6 +100,12 @@ window.onload = (e)=>{
             window.localStorage.setItem('user', JSON.stringify(r))
             verifyLogin()
         })
-
     }
+
+    btnSignin.onclick = (e)=>{
+      e.preventDefault()
+    }
+
+    
+    verifyLogin()
 }
