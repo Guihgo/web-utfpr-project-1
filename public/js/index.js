@@ -1,8 +1,9 @@
 const API_KEY = 'N2YyZmMxYzItODgxNy00ZWY4LWE4YTEtNGMwMDBkMDZjNWFi'
 
-API.setServerUrl('https://api.m3o.com/v1/')
-API.addHeader('Authorization', `Bearer ${API_KEY}`)
-API.addHeader('Host', `api.m3o.com`)
+API.setServerUrl('http://127.0.0.1:8080/api/')
+// API.setServerUrl('https://api.m3o.com/v1/')
+// API.addHeader('Authorization', `Bearer ${API_KEY}`)
+API.addHeader('Host', `127.0.0.1`)
 API.addHeader('Accept', `*/*`)
 
 //ENDPOINT TO CREATE USER =>> https://api.m3o.com/v1/user/Create
@@ -20,92 +21,98 @@ const verifyLogin = () => {
     const user = window.localStorage.getItem('user')
     
     if(user) {
-        btnLoginModal.querySelector('a').innerHTML = `Logout ${JSON.parse(user).session.userId}`
+        btnLoginModal.querySelector('a').innerHTML = `Logout`
+        btnSignupModal.style.display = 'none'
+        app.style.display = 'block'
+        container.style.display = 'none'
+        closeModal(document.getElementById('loginModal'))
     } else {
-        btnLoginModal.querySelector('a').innerHTML = 'Entrar'
+        btnSignupModal.style.display = 'inline'
+        app.style.display = 'none'
+        container.style.display = 'block'
+        btnLoginModal.querySelector('a').innerHTML = 'Login'
     }
+
+    
 }
 
-window.onload = (e)=>{
-    const loginModal = document.getElementById('loginModal')
-    const btnLoginModal = document.getElementById('btnLoginModal')
-    const btnLogin = document.getElementById('btnLogin')
+const closeModal = (modal)=> {
+  modal.style.display = 'none'
+}
 
-    const signinModal = document.getElementById('signinModal')
-    const btnSigninModal = document.getElementById('btnSigninModal')
-    const btnSignin = document.getElementById('btnSignin')
+const logout = ()=>{
+  window.localStorage.removeItem('user')
+  verifyLogin()
+}
 
-    const addModal = document.getElementById('addModal')
-    const btnAddModal = document.getElementById('btnAddModal')
-    const btnAdd = document.getElementById('btnAdd')
+window.addEventListener('load', (e)=>{
+  const app = document.getElementById('app')
+  const container = document.getElementById('container')
 
-    document.querySelectorAll('.modal .box').forEach(b=>{
-      b.onclick = (e)=>{
-        e.stopPropagation()
-      }
-    })
+  const loginModal = document.getElementById('loginModal')
+  const btnLoginModal = document.getElementById('btnLoginModal')
+  const btnLogin = document.getElementById('btnLogin')
 
-    document.querySelectorAll('.modal').forEach(m=>{
-      m.onclick
-      = (e)=>{
-        e.target.style.display = 'none'
-      }
-    })
-    
-    document.querySelectorAll('.modal .box .close').forEach(i=>{
-      i.onclick = (e)=>{
-        document.querySelectorAll('.modal').forEach(modal=>{
-          modal.style.display = 'none'
-        })
-      }
-    })
-    
-    const showModal = (modal, event) => {
-      event.preventDefault()
+  const signupModal = document.getElementById('signupModal')
+  const btnSignupModal = document.getElementById('btnSignupModal')
+  const btnSignup = document.getElementById('btnSignup')
 
-      if(modal.style.display==='none' || modal.style.display==='') {
-        modal.style.display = 'block'
-      } else {
+  const addModal = document.getElementById('addModal')
+  const btnAddModal = document.getElementById('btnAddModal')
+  const btnAdd = document.getElementById('btnAdd')
+
+  document.querySelectorAll('.modal .box').forEach(b=>{
+    b.onclick = (e)=>{
+      e.stopPropagation()
+    }
+  })
+
+  document.querySelectorAll('.modal').forEach(m=>{
+    m.onclick
+    = (e)=>{
+      closeModal(e.target)
+    }
+  })
+  
+  document.querySelectorAll('.modal .box .close').forEach(i=>{
+    i.onclick = (e)=>{
+      document.querySelectorAll('.modal').forEach(modal=>{
         modal.style.display = 'none'
-      }
+      })
     }
+  })
+  
+  const showModal = (modal, event) => {
+    event.preventDefault()
 
-    btnLoginModal.onclick = (e) => {
-      showModal(loginModal, e)
+    if(modal.style.display==='none' || modal.style.display==='') {
+      modal.style.display = 'block'
+    } else {
+      modal.style.display = 'none'
     }
-    btnSigninModal.onclick = (e) => {
-      showModal(signinModal, e)
-    }
+  }
 
-    btnAddModal.onclick = (e) => {
-      showModal(addModal, e)
+  btnLoginModal.onclick = (e) => {
+    const user = window.localStorage.getItem('user')
+    if(user) {
+      return logout()
     }
-    
-    btnLogin.onclick = (e)=>{
-        e.preventDefault()
-        const user = window.localStorage.getItem('user')
-        // console.log(user)
-        if(user)  { //if already logged, logout!
-            window.localStorage.removeItem('user')
-            btnLogin.querySelector('a').innerHTML = 'Entrar'
-            return alert('Logout with success!')
-        }
+    showModal(loginModal, e)
+  }
+  btnSignupModal.onclick = (e) => {
+    showModal(signupModal, e)
+  }
 
-        API.setMethod('POST')
-        API.json('user/Login', {
-            "email": "guilherme@example.com",
-            "password": "mySecretPass123"
-            }, (r)=>{
-                console.log(r)
-            window.localStorage.setItem('user', JSON.stringify(r))
-            verifyLogin()
-        })
-    }
+  btnAddModal.onclick = (e) => {
+    showModal(addModal, e)
+  }
+  
+  
 
-    btnSignin.onclick = (e)=>{
-      e.preventDefault()
-    }
+  btnSignup.onclick = (e)=>{
+    e.preventDefault()
+  }
 
-    
-    verifyLogin()
-}
+  
+  verifyLogin()
+})

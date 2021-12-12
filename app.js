@@ -1,10 +1,12 @@
 let http = require('http')
 let express = require('express')
 const path = require('path')
-const {MongoClient, Db, Collection} = require('mongodb')
+const { MongoClient } = require('mongodb')
 const dotenv = require('dotenv')
+const cors = require('cors')
+
 const Model = require("./model/index")
-const {UserController, ContentController, APIController} = require('./controller/index')
+const {APIController} = require('./controller/index')
 
 dotenv.config()
 let app = express()
@@ -54,10 +56,14 @@ const setupWebserver = () => {
     app.set(DB_USER_KEY, this.DB_USER)
     app.set(DB_CONTENT_KEY, this.DB_CONTENT)
 
+    app.use(cors())
+
     app.use(express.static('public'))
 
+    app.use(express.json())
+
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, 'index.html'))
+        res.sendFile(path.join(__dirname, 'view/index.html'))
     }) 
     app.use('/api', APIController)
 }
