@@ -1,0 +1,1 @@
+mongod --dbpath="D:\Guihgo\Projetos\Utfpr\periodo10\web\db"

@@ -49,7 +49,7 @@ window.onload = (e)=>{
       m.onclick
       = (e)=>{
         e.target.style.display = 'none'
-      } 
+      }
     })
     
     document.querySelectorAll('.modal .box .close').forEach(i=>{
