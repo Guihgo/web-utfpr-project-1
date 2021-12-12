@@ -15,6 +15,20 @@ app.get('/', (req, res) => {
     // res.send('Servidor Web Rodando na porta ' + port)
 })
 
+/* Auth Middleware */
+app.use((req, res, next)=>{
+    console.log(`TODO: auth middle`)
+    /* if(!isAuth) {
+        return res.redirect('/#login')
+    }
+    */
+    next()
+}) 
+
+app.get('/app', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'app.html'))
+})
+
 app.get('/teste', (req, res) => {
     res.send('Estamos em /teste no Servidor Web da porta ' + port)
 })
