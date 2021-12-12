@@ -49,14 +49,22 @@ window.addEventListener('load', (e)=>{
   const app = document.getElementById('app')
   const container = document.getElementById('container')
 
+  /* Login */
   const loginModal = document.getElementById('loginModal')
   const btnLoginModal = document.getElementById('btnLoginModal')
   const btnLogin = document.getElementById('btnLogin')
+  const emailLogin = document.getElementById('emailLogin')
+  const passwordLogin = document.getElementById('passwordLogin')
 
+  /* SignUp */
   const signupModal = document.getElementById('signupModal')
   const btnSignupModal = document.getElementById('btnSignupModal')
   const btnSignup = document.getElementById('btnSignup')
+  const nameSignup = document.getElementById('nameSignup')
+  const emailSignup = document.getElementById('emailSignup')
+  const passwordSignup = document.getElementById('passwordSignup')
 
+  /* APP */
   const addModal = document.getElementById('addModal')
   const btnAddModal = document.getElementById('btnAddModal')
   const btnAdd = document.getElementById('btnAdd')
@@ -99,6 +107,7 @@ window.addEventListener('load', (e)=>{
     }
     showModal(loginModal, e)
   }
+  
   btnSignupModal.onclick = (e) => {
     showModal(signupModal, e)
   }
@@ -106,13 +115,6 @@ window.addEventListener('load', (e)=>{
   btnAddModal.onclick = (e) => {
     showModal(addModal, e)
   }
-  
-  
-
-  btnSignup.onclick = (e)=>{
-    e.preventDefault()
-  }
-
   
   verifyLogin()
 })

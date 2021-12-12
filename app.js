@@ -25,7 +25,7 @@ async function run() {
         console.log(`[DB] Connecting to database...`)
         dbClient.connect().then((c)=>{
             this.DB = c.db(process.env.DB_NAME)
-            
+            // this.DB.collection('user').insertOne()
             Model.init({
                 user: this.DB.collection('user'),
                 content: this.DB.collection('content'),
