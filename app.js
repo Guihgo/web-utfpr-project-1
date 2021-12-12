@@ -58,7 +58,6 @@ const setupWebserver = () => {
 
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname, 'index.html'))
-        // res.send('Servidor Web Rodando na porta ' + port)
     }) 
     app.use('/api', APIController)
 }
