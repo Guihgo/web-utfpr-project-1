@@ -1,6 +1,6 @@
 const API_KEY = 'N2YyZmMxYzItODgxNy00ZWY4LWE4YTEtNGMwMDBkMDZjNWFi'
 
-API.setServerUrl('http://127.0.0.1:8080/api/')
+API.setServerUrl(HTTP_URL)
 // API.setServerUrl('https://api.m3o.com/v1/')
 // API.addHeader('Authorization', `Bearer ${API_KEY}`)
 // API.addHeader('Host', `127.0.0.1`)

@@ -1,4 +1,5 @@
 let http = require('http')
+const fs = require('fs')
 let express = require('express')
 const path = require('path')
 const { MongoClient } = require('mongodb')
@@ -63,7 +64,8 @@ const setupWebserver = () => {
     app.use(express.json())
 
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, 'view/index.html'))
+        const index = fs.readFileSync(path.join(__dirname, 'view/index.html')).toString()
+        res.send(index.replace('{{HTTP_URL}}', process.env.HTTP_URL))
     }) 
     app.use('/api', APIController)
 }
