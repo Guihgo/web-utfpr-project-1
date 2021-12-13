@@ -175,6 +175,19 @@ window.addEventListener('load', (e)=>{
 
   btnLogin.onclick = (e) => {
       e.preventDefault()
+
+      if(!emailLogin.value) {
+        return alert('Name Required field')
+      }
+
+      if(!passwordLogin.value) {
+        return alert('Email Required field')
+      }
+      
+
+      if(!validateEmail(emailLogin.value)) {
+        return alert('Email isn`t valid')
+      }
       
       API.setMethod('POST')
       API.json('auth/login', {
@@ -194,12 +207,21 @@ window.addEventListener('load', (e)=>{
   btnSignup.onclick = (e)=>{
       e.preventDefault()
           
-      if(passwordSignup.value.length<=6) {
-        return alert('Password length too small')
+    
+      if(!nameSignup.value) {
+        return alert('Name Required field')
+      }
+
+      if(!emailSignup.value) {
+        return alert('Email Required field')
+      }
+
+      if(!validateEmail(emailSignup.value)) {
+        return alert('Email isn`t valid')
       }
       
-      if(!validateEmail(emailSignup.value)) {
-        return alert('Email inválido')
+      if(!passwordSignup.value) {
+        return alert('Password Required field')
       }
 
       API.setMethod('POST')
