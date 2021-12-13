@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="../imgs/logo.png">
     <meta name="viewport" content="initial-scale=1,maximum-scale=3,minimum-scale=1,user-scalable=no">
     <title>Overleaf</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css">
-    <!-- lk-->
+
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <script src="js/api.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/app.js"></script>
 </head>
 
 <body>
@@ -103,41 +103,14 @@
 
         <div class="searchTemplate">
             <div>
-                <input type="search" placeholder="Search a template" />
-                <button>Search</button>
+                <input id="searchInput" type="search" placeholder="Search a template" />
+                <button id="btnSearch">Search</button>
                 <button id="btnAddModal">ADD</button>
             </div>
         </div>
             
         <div class="features">
-            <div class="cards">
-                <div class="card">
-                    <div>
-                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
-                    </div>
-                    <div class="desc">
-                        <h3>Title Here</h3>
-                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
-                    </div>
-                    <div class="desc">
-                        <h3>Title Here</h3>
-                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <i class="fa fa-group fa-4x icon-accent" aria-hidden="true"></i>
-                    </div>
-                    <div class="desc">
-                        <h3>Title Here</h3>
-                        <p>Description here Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos commodi recusandae, illo iure sed nemo sit natus ipsum cupiditate.</p>
-                    </div>
-                </div>
+            <div id="content" class="cards">
                
             </div>
         </div>

@@ -16,7 +16,8 @@ class AuthModel extends Model {
         })
 
         return {
-            token
+            token,
+            isAdmin: user.isAdmin
         }
     }
 }
