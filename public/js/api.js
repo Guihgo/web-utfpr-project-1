@@ -12,10 +12,10 @@ class APIClass {
   }
   addHeader(_key, _value) {
     this.headers.push({ key: _key, value: _value });
+  
   }
   setHeader(key, value) {
-    const index = this.headers.findIndex((h)=>h==key)
-    console.log(index)
+    const index = this.headers.findIndex((h)=>(h.key==key))
     if(index===-1) return this.addHeader(key, value)
     this.headers[index].value = value
   }

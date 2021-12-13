@@ -1,6 +1,6 @@
 const API_KEY = 'N2YyZmMxYzItODgxNy00ZWY4LWE4YTEtNGMwMDBkMDZjNWFi'
 
-API.setServerUrl('http://127.0.0.1:8080/api/')
+API.setServerUrl(HTTP_URL)
 // API.setServerUrl('https://api.m3o.com/v1/')
 // API.addHeader('Authorization', `Bearer ${API_KEY}`)
 // API.addHeader('Host', `127.0.0.1`)
@@ -29,6 +29,7 @@ const verifyLogin = () => {
     
     if(user) {
         user = JSON.parse(user)
+        API.setHeader('Authorization', `Bearer ${user.token}`)
         btnLoginModal.querySelector('a').innerHTML = `Logout`
         btnSignupModal.style.display = 'none'
         app.style.display = 'block'
@@ -58,6 +59,10 @@ const logout = ()=>{
   verifyLogin()
 }
 
+const antiJSInject = (text) => {
+  return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 const searchContent = ()=>{
   const search = searchInput.value
 
@@ -72,17 +77,20 @@ const searchContent = ()=>{
       contents += `
          <div class="card">
               <div>
-                  <i class="fa ${encodeURIComponent(c.type)} fa-4x icon-accent" aria-hidden="true"></i>
+                  <i class="fa ${antiJSInject(c.type)} fa-4x icon-accent" aria-hidden="true"></i>
               </div>
               <div class="desc">
-                  <h3>${encodeURIComponent(c.title)}</h3>
-                  <p>${c.description}</p>
+                  <h3>${antiJSInject(c.title)}</h3>
+                  <p>${antiJSInject(c.description)}</p>
               </div>
           </div>
       `
     })
 
+    // <h3>${(c.title)}</h3>
+    //  <h3>${antiJSInject(c.title)}</h3>
     
+    list.innerHTML = contents
 
   })
 }
@@ -107,12 +115,16 @@ window.addEventListener('load', (e)=>{
   const passwordSignup = document.getElementById('passwordSignup')
 
   /* APP */
-  const content = document.getElementById('content')
+  const list = document.getElementById('list')
   const searchInput = document.getElementById('searchInput')
   const btnSearch = document.getElementById('btnSearch')
   const addModal = document.getElementById('addModal')
   const btnAddModal = document.getElementById('btnAddModal')
   const btnAdd = document.getElementById('btnAdd')
+  const nameAdd = document.getElementById('nameAdd')
+  const descriptionAdd = document.getElementById('descriptionAdd')
+  const typeAdd = document.getElementById('typeAdd')
+
 
   document.querySelectorAll('.modal .box').forEach(b=>{
     b.onclick = (e)=>{
@@ -175,7 +187,6 @@ window.addEventListener('load', (e)=>{
               }
 
               window.localStorage.setItem('user', JSON.stringify(r))
-              API.setHeader('Authorization', `Bearer ${r.token}`)
               verifyLogin()
       })
   }
@@ -206,9 +217,34 @@ window.addEventListener('load', (e)=>{
       })
   }
 
+  btnAdd.onclick = (e)=>{
+      e.preventDefault()
+
+      API.setMethod('POST')
+      API.json('content', {
+          "title": nameAdd.value,
+          "description": descriptionAdd.value,
+          "type": typeAdd.value
+      }, (r)=>{
+              if(r.error) {
+                  return alert(r.error)
+              }
+
+              alert(`Template added with success!`)
+              closeModal(addModal)
+              searchInput.value = ''
+              searchContent()
+      })
+  }
+
   btnSearch.onclick = (e)=>{
     searchContent()
   }
+
+  searchInput.addEventListener('keyup', (e)=>{
+    searchContent()
+  })
+
   
   verifyLogin()
 })

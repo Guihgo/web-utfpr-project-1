@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <script>
+        const HTTP_URL = `{{HTTP_URL}}`
+    </script>
     <script src="js/api.js"></script>
     <script src="js/index.js"></script>
 </head>
@@ -59,13 +62,13 @@
             <h2>Add a template</h2>
             <span class="close">&times;</span>
             <div class="input">
-                <input type="text" placeholder="Template name" />
+                <input id="nameAdd" type="text" placeholder="Template name" />
             </div>
             <div class="input">
-                <input type="text" placeholder="Template description" />
+                <input id="descriptionAdd" type="text" placeholder="Template description" />
             </div>
             <div class="input">
-                <select id="icon">
+                <select id="typeAdd" id="icon">
                     <option value="fa-address-book">Book</option>
                     <option value="fa-envelope-open">Envelope</option>
                     <option value="fa-id-card">Card</option>
@@ -110,7 +113,7 @@
         </div>
             
         <div class="features">
-            <div id="content" class="cards">
+            <div id="list" class="cards">
                
             </div>
         </div>

@@ -1,7 +1,7 @@
 # web-utfpr-project-1
 
-Guilherme Henrique Gregorini Oliveira 1913298
-Fabio Oliveira da Silva 1914740
+EC38B1/ Guilherme Henrique Gregorini Oliveira - 1913298
+AS34A/ Fabio Oliveira da Silva - 1914740
 
 # Access
 

@@ -10,7 +10,7 @@ class AuthModel extends Model {
             token: null
         } 
 
-        const token = jwt.sign({id: user._id, email: user.email}, process.env.JWT_AUTH, {
+        const token = jwt.sign({id: user._id, email: user.email, isAdmin: user.isAdmin}, process.env.JWT_AUTH, {
             algorithm:'HS512',
             expiresIn: '24h',
         })
