@@ -16,6 +16,13 @@ API.addHeader('Accept', `*/*`)
   "username": "guihgo"
 }
 */
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
 
 const verifyLogin = () => {
     let user = window.localStorage.getItem('user')
@@ -156,7 +163,7 @@ window.addEventListener('load', (e)=>{
 
   btnLogin.onclick = (e) => {
       e.preventDefault()
-
+      
       API.setMethod('POST')
       API.json('auth/login', {
           "email": emailLogin.value,
@@ -175,6 +182,14 @@ window.addEventListener('load', (e)=>{
 
   btnSignup.onclick = (e)=>{
       e.preventDefault()
+          
+      if(passwordSignup.value.length<=6) {
+        return alert('Password length too small')
+      }
+      
+      if(!validateEmail(emailSignup.value)) {
+        return alert('Email inválido')
+      }
 
       API.setMethod('POST')
       API.json('user', {
